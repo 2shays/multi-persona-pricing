@@ -84,7 +84,6 @@ export default function PricingEstimator() {
         {isLoading && <LoadingAnalysis />}
 
       <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-[#17D8B1] via-[#363A8F] to-[#412352] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
             Multi-Persona Pricing Intelligence
