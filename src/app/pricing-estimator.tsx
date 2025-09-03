@@ -102,8 +102,28 @@ export default function PricingEstimator() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <header className="w-full py-20 md:py-32 text-center bg-gradient-to-br from-primary/20 via-background to-secondary/20 relative overflow-hidden">
+    <div className="w-full flex flex-col items-center relative overflow-hidden">
+        {/* Animated Background Shapes */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10">
+          <div
+            className="absolute top-[10%] left-[5%] w-32 h-32 bg-primary/10 rounded-full animate-[float_10s_ease-in-out_infinite]"
+            style={{ animationDelay: '0s' }}
+          ></div>
+          <div
+            className="absolute top-[20%] right-[10%] w-48 h-48 bg-secondary/10 rounded-xl animate-[float-reverse_12s_ease-in-out_infinite]"
+            style={{ animationDelay: '2s' }}
+          ></div>
+          <div
+            className="absolute bottom-[15%] left-[15%] w-24 h-24 bg-accent/10 rounded-full animate-[float_8s_ease-in-out_infinite]"
+            style={{ animationDelay: '4s' }}
+          ></div>
+           <div
+            className="absolute bottom-[25%] right-[5%] w-40 h-40 bg-primary/5 rounded-3xl animate-[float_15s_ease-in-out_infinite]"
+            style={{ animationDelay: '6s' }}
+          ></div>
+        </div>
+
+      <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-primary/30 via-secondary/30 to-accent/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
