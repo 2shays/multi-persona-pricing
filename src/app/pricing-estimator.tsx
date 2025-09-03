@@ -80,32 +80,32 @@ export default function PricingEstimator() {
   }, [analysisResults]);
 
   return (
-    <div className="w-full flex flex-col items-center relative overflow-hidden">
+    <div className="w-full flex flex-col items-center relative">
         {isLoading && <LoadingAnalysis />}
         {/* Animated Background Shapes */}
-        <div className="absolute top-0 left-0 w-full h-full -z-10">
+        <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
           <div
-            className="absolute top-[10%] left-[5%] w-32 h-32 bg-primary/10 rounded-full animate-[float_10s_ease-in-out_infinite]"
+            className="absolute top-[10%] left-[5%] w-32 h-32 bg-primary/10 rounded-full animate-float"
             style={{ animationDelay: '0s' }}
           ></div>
           <div
-            className="absolute top-[20%] right-[10%] w-48 h-48 bg-secondary/10 rounded-xl animate-[float-reverse_12s_ease-in-out_infinite]"
+            className="absolute top-[20%] right-[10%] w-48 h-48 bg-secondary/10 rounded-xl animate-float-reverse"
             style={{ animationDelay: '2s' }}
           ></div>
           <div
-            className="absolute bottom-[15%] left-[15%] w-24 h-24 bg-accent/10 rounded-full animate-[float_8s_ease-in-out_infinite]"
+            className="absolute bottom-[15%] left-[15%] w-24 h-24 bg-accent/10 rounded-full animate-float"
             style={{ animationDelay: '4s' }}
           ></div>
            <div
-            className="absolute bottom-[25%] right-[5%] w-40 h-40 bg-primary/5 rounded-3xl animate-[float_15s_ease-in-out_infinite]"
+            className="absolute bottom-[25%] right-[5%] w-40 h-40 bg-primary/5 rounded-3xl animate-float"
             style={{ animationDelay: '6s' }}
           ></div>
            <div
-            className="absolute top-[60%] left-[20%] w-20 h-20 bg-secondary/5 rounded-full animate-[float_11s_ease-in-out_infinite]"
+            className="absolute top-[60%] left-[20%] w-20 h-20 bg-secondary/5 rounded-full animate-float"
             style={{ animationDelay: '1s' }}
           ></div>
            <div
-            className="absolute top-[75%] right-[25%] w-36 h-36 bg-accent/5 rounded-xl animate-[float-reverse_9s_ease-in-out_infinite]"
+            className="absolute top-[75%] right-[25%] w-36 h-36 bg-accent/5 rounded-xl animate-float-reverse"
             style={{ animationDelay: '3s' }}
           ></div>
         </div>

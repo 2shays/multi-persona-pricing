@@ -104,7 +104,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        float: 'float 10s ease-in-out infinite',
+        'float': 'float 10s ease-in-out infinite',
         'float-reverse': 'float-reverse 12s ease-in-out infinite',
       },
     },
