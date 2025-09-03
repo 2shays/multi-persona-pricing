@@ -75,7 +75,7 @@ export default function PricingEstimator() {
   
   useEffect(() => {
     if (analysisResults && resultsRef.current) {
-      resultsRef.current.scrollIntoView({ behavior: 'smooth' });
+      resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [analysisResults]);
 
@@ -99,6 +99,14 @@ export default function PricingEstimator() {
            <div
             className="absolute bottom-[25%] right-[5%] w-40 h-40 bg-primary/5 rounded-3xl animate-[float_15s_ease-in-out_infinite]"
             style={{ animationDelay: '6s' }}
+          ></div>
+           <div
+            className="absolute top-[60%] left-[20%] w-20 h-20 bg-secondary/5 rounded-full animate-[float_11s_ease-in-out_infinite]"
+            style={{ animationDelay: '1s' }}
+          ></div>
+           <div
+            className="absolute top-[75%] right-[25%] w-36 h-36 bg-accent/5 rounded-xl animate-[float-reverse_9s_ease-in-out_infinite]"
+            style={{ animationDelay: '3s' }}
           ></div>
         </div>
 
@@ -137,7 +145,7 @@ export default function PricingEstimator() {
             className="border-secondary/30 shadow-lg shadow-secondary/10"
           />
           <PersonaCard
-            icon={<User className="w-10 h-10 text-accent" />}
+            icon={<BrainCircuit className="w-10 h-10 text-accent" />}
             title="Customer Psychologist"
             description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
             className="border-accent/30 shadow-lg shadow-accent/10"
@@ -197,7 +205,7 @@ export default function PricingEstimator() {
                 <div className="flex items-center mb-4">
                   <HeadOfPricingIcon className="w-8 h-8 text-success mr-3" />
                   <h2 className="text-2xl font-bold text-success/90">
-                    Final Recommendation (Head of Pricing)
+                    Final Recommendation
                   </h2>
                 </div>
                 <p className="text-foreground/90 mb-4 font-medium">
