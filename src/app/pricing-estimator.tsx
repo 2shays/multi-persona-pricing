@@ -4,10 +4,8 @@ import { useEffect, useState, useTransition } from 'react';
 import { runAnalysis, type AnalysisResult } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
-  BrainCircuit,
   HeadOfPricingIcon,
   LineChart,
   LoaderIcon,
@@ -19,6 +17,7 @@ import { AnalysisCard } from '@/components/analysis-card';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { User } from 'lucide-react';
+import { LoadingAnalysis } from '@/components/loading-analysis';
 
 function PersonaCard({
   icon,
@@ -48,38 +47,11 @@ function PersonaCard({
 export default function PricingEstimator() {
   const [companyInput, setCompanyInput] = useState('');
   const [isPending, startTransition] = useTransition();
-  const [loadingMessage, setLoadingMessage] = useState('');
-  const [progress, setProgress] = useState(0);
   const [analysisResults, setAnalysisResults] =
     useState<MultiPersonaPriceEstimationOutput | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const isLoading = isPending || (progress > 0 && progress < 100);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isPending) {
-      setProgress(10);
-      setLoadingMessage('Analyzing company...');
-      interval = setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= 90) {
-            clearInterval(interval);
-            return 90;
-          }
-          if (prev >= 40 && prev < 70) {
-            setLoadingMessage('Running base models...');
-          } else if (prev >= 70) {
-            setLoadingMessage('Synthesizing results...');
-          }
-          return prev + 5;
-        });
-      }, 500);
-    } else {
-      setProgress(0);
-    }
-    return () => clearInterval(interval);
-  }, [isPending]);
+  const isLoading = isPending;
 
   const handleAnalysis = () => {
     if (!companyInput) {
@@ -91,19 +63,16 @@ export default function PricingEstimator() {
     startTransition(async () => {
       const result: AnalysisResult = await runAnalysis(companyInput);
       if (result.success) {
-        setProgress(100);
-        setLoadingMessage('Analysis complete!');
         setAnalysisResults(result.data);
-        setTimeout(() => setProgress(0), 1000);
       } else {
         setError(result.error);
-        setProgress(0);
       }
     });
   };
 
   return (
     <div className="w-full flex flex-col items-center relative overflow-hidden">
+        {isLoading && <LoadingAnalysis />}
         {/* Animated Background Shapes */}
         <div className="absolute top-0 left-0 w-full h-full -z-10">
           <div
@@ -203,13 +172,6 @@ export default function PricingEstimator() {
               {isPending ? 'Running...' : 'Run Pricing Analysis'}
             </Button>
           </div>
-
-          {isLoading && (
-            <div className="w-full mt-6 text-left">
-              <Progress value={progress} className="h-2" />
-              <p className="text-sm text-muted-foreground mt-2">{loadingMessage}</p>
-            </div>
-          )}
 
           {error && (
             <Alert variant="destructive" className="p-4 mt-6 text-left">
