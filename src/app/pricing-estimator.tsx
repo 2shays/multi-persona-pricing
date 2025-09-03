@@ -7,12 +7,12 @@ import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
+  BrainCircuit,
   HeadOfPricingIcon,
+  LineChart,
   LoaderIcon,
   MarketAnalystIcon,
-  QuantAnalystIcon,
   SearchIcon,
-  ValueEngineerIcon,
 } from '@/components/icons';
 import type { MultiPersonaPriceEstimationOutput } from '@/ai/flows/multi-persona-price-estimation';
 import { AnalysisCard } from '@/components/analysis-card';
@@ -123,7 +123,7 @@ export default function PricingEstimator() {
           ></div>
         </div>
 
-      <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-primary/30 via-secondary/30 to-accent/30 relative overflow-hidden">
+      <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-[#17D8B1] via-[#363A8F] to-[#412352] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
@@ -152,13 +152,13 @@ export default function PricingEstimator() {
             className="border-primary/30 shadow-lg shadow-primary/10"
           />
           <PersonaCard
-            icon={<ValueEngineerIcon className="w-10 h-10 text-secondary" />}
+            icon={<LineChart className="w-10 h-10 text-secondary" />}
             title="Value Engineer"
             description="Estimates the tangible financial benefit (ROI) for a customer, competitor pricing data and positioning analysis."
             className="border-secondary/30 shadow-lg shadow-secondary/10"
           />
           <PersonaCard
-            icon={<QuantAnalystIcon className="w-10 h-10 text-accent" />}
+            icon={<BrainCircuit className="w-10 h-10 text-accent" />}
             title="Customer Psychologist"
             description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
             className="border-accent/30 shadow-lg shadow-accent/10"
@@ -273,7 +273,7 @@ export default function PricingEstimator() {
               )}
               {analysisResults.valueEngineer && (
                 <AnalysisCard
-                  icon={<ValueEngineerIcon />}
+                  icon={<LineChart />}
                   title="Value Engineer"
                   description="Estimates the tangible financial benefit (ROI) a customer gets, pricing the product as a fraction of that value."
                   data={analysisResults.valueEngineer}
@@ -284,7 +284,7 @@ export default function PricingEstimator() {
               )}
               {analysisResults.quantitativeAnalyst && (
                 <AnalysisCard
-                  icon={<QuantAnalystIcon />}
+                  icon={<BrainCircuit />}
                   title="Quantitative Analyst"
                   description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
                   data={analysisResults.quantitativeAnalyst}
