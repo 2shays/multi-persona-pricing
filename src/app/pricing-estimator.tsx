@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState, useTransition, useRef } from 'react';
 import { runAnalysis, type AnalysisResult } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,7 @@ import {
   LoaderIcon,
   MarketAnalystIcon,
   SearchIcon,
+  BrainCircuit,
 } from '@/components/icons';
 import type { MultiPersonaPriceEstimationOutput } from '@/ai/flows/multi-persona-price-estimation';
 import { AnalysisCard } from '@/components/analysis-card';
@@ -50,6 +51,8 @@ export default function PricingEstimator() {
   const [analysisResults, setAnalysisResults] =
     useState<MultiPersonaPriceEstimationOutput | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
 
   const isLoading = isPending;
 
@@ -69,6 +72,12 @@ export default function PricingEstimator() {
       }
     });
   };
+  
+  useEffect(() => {
+    if (analysisResults && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [analysisResults]);
 
   return (
     <div className="w-full flex flex-col items-center relative overflow-hidden">
@@ -182,7 +191,7 @@ export default function PricingEstimator() {
         </section>
 
         {analysisResults && (
-          <div className="w-full max-w-5xl mx-auto space-y-8 mt-16 animate-in fade-in duration-500 text-left">
+          <div ref={resultsRef} className="w-full max-w-5xl mx-auto space-y-8 mt-16 animate-in fade-in duration-500 text-left">
             {analysisResults.headOfPricing && (
               <section className="bg-success/10 p-6 rounded-2xl border border-success/20">
                 <div className="flex items-center mb-4">

@@ -45,13 +45,13 @@ export function LoadingAnalysis() {
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((prev) => {
-                if (prev >= 99) {
+                if (prev >= 95) { // Stop at 95 to avoid getting "stuck"
                     clearInterval(interval);
-                    return 99;
+                    return 95;
                 }
                 return prev + 1;
             });
-        }, 120); // 12 seconds total load time approx.
+        }, 180); // ~17 seconds to reach 95%
 
         return () => clearInterval(interval);
     }, []);
