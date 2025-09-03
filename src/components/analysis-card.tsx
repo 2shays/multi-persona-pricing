@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { User } from "lucide-react";
 
 interface AnalysisCardProps {
     icon: React.ReactNode;
@@ -27,12 +28,16 @@ export function AnalysisCard({
     subPriceKey,
     subPriceLabel
 }: AnalysisCardProps) {
+    // A bit of a hack to replace the icon for the quantitative analyst
+    // without having to pass a separate prop all the way down.
+    const displayIcon = title === "Quantitative Analyst" ? <User /> : icon;
+
     return (
         <Card className="bg-card/50 flex flex-col border-border/60">
             <CardHeader>
                 <div className="flex items-center mb-2 gap-3">
                     <div className={cn("w-8 h-8", accentClass)}>
-                        {icon}
+                        {displayIcon}
                     </div>
                     <CardTitle className="text-xl font-bold text-foreground">{title}</CardTitle>
                 </div>

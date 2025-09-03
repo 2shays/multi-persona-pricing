@@ -18,6 +18,7 @@ import type { MultiPersonaPriceEstimationOutput } from '@/ai/flows/multi-persona
 import { AnalysisCard } from '@/components/analysis-card';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
+import { User } from 'lucide-react';
 
 function PersonaCard({
   icon,
@@ -158,7 +159,7 @@ export default function PricingEstimator() {
             className="border-secondary/30 shadow-lg shadow-secondary/10"
           />
           <PersonaCard
-            icon={<BrainCircuit className="w-10 h-10 text-accent" />}
+            icon={<User className="w-10 h-10 text-accent" />}
             title="Customer Psychologist"
             description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
             className="border-accent/30 shadow-lg shadow-accent/10"
@@ -284,7 +285,7 @@ export default function PricingEstimator() {
               )}
               {analysisResults.quantitativeAnalyst && (
                 <AnalysisCard
-                  icon={<BrainCircuit />}
+                  icon={<User />}
                   title="Quantitative Analyst"
                   description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
                   data={analysisResults.quantitativeAnalyst}
