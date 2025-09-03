@@ -67,21 +67,21 @@ const marketAnalystPrompt = ai.definePrompt({
   name: 'marketAnalystPrompt',
   input: {schema: MultiPersonaPriceEstimationInputSchema},
   output: {schema: MarketAnalystSchema},
-  prompt: `Act as a Market Analyst. Analyze the market for Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Provide a justifiable monthly price range. The 'estimatedPriceRange' field must contain ONLY the price string (e.g., '$5,000 - $7,000/month') with no other text. Keep your 'analysis' concise (under 40 words). Respond in JSON format: \`{{"analysis": "...", "estimatedPriceRange": "..."}}\``,
+  prompt: `Act as a Market Analyst. Analyze the market for Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Provide a justifiable monthly price range. The 'estimatedPriceRange' field must contain ONLY the price string (e.g., '$5,000 - $7,000/month') with no other text. Keep your 'analysis' concise (under 40 words). Respond in JSON format: \`\{"analysis": "...", "estimatedPriceRange": "..."\}\``,
 });
 
 const valueEngineerPrompt = ai.definePrompt({
   name: 'valueEngineerPrompt',
   input: {schema: MultiPersonaPriceEstimationInputSchema},
   output: {schema: ValueEngineerSchema},
-  prompt: `Act as a Value Engineer. Estimate the financial value (ROI) for the customer of Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Provide a justified monthly price point. The 'justifiedPricePoint' field must contain ONLY the price string (e.g., '$10,000/month'). Keep your 'analysis' concise (under 40 words). Respond in JSON format: \`{{"analysis": "...", "estimatedValueToCustomer": "...", "justifiedPricePoint": "..."}}\``,
+  prompt: `Act as a Value Engineer. Estimate the financial value (ROI) for the customer of Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Provide a justified monthly price point. The 'justifiedPricePoint' field must contain ONLY the price string (e.g., '$10,000/month'). Keep your 'analysis' concise (under 40 words). Respond in JSON format: \`\{"analysis": "...", "estimatedValueToCustomer": "...", "justifiedPricePoint": "..."\}\``,
 });
 
 const quantAnalystPrompt = ai.definePrompt({
   name: 'quantAnalystPrompt',
   input: {schema: MultiPersonaPriceEstimationInputSchema},
   output: {schema: QuantAnalystSchema},
-  prompt: `Act as a Quantitative Analyst. Simulate Van Westendorp price sensitivity for Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Provide an optimal monthly price point. The 'optimalPricePoint' field must contain ONLY the price string (e.g., '$8,500/month'). Keep your 'analysis' concise (under 40 words). Respond in JSON format: \`{{"analysis": "...", "optimalPricePoint": "...", "acceptablePriceRange": "..."}}\``,
+  prompt: `Act as a Quantitative Analyst. Simulate Van Westendorp price sensitivity for Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Provide an optimal monthly price point. The 'optimalPricePoint' field must contain ONLY the price string (e.g., '$8,500/month'). Keep your 'analysis' concise (under 40 words). Respond in JSON format: \`\{"analysis": "...", "optimalPricePoint": "...", "acceptablePriceRange": "..."\}\``,
 });
 
 const headOfPricingPrompt = ai.definePrompt({
@@ -105,7 +105,7 @@ const headOfPricingPrompt = ai.definePrompt({
 3. Quantitative Analyst:
 {{json quantitativeAnalyst}}
 
-Synthesize these and provide a final recommended monthly price. The 'recommendedPrice' field must contain ONLY the price string (e.g., '$9,000/month'). Explain your reasoning concisely in 'synthesis'. Respond in JSON format: \`{{"synthesis": "...", "recommendedPrice": "...", "confidencePercentage": 0-100}}\``,
+Synthesize these and provide a final recommended monthly price. The 'recommendedPrice' field must contain ONLY the price string (e.g., '$9,000/month'). Explain your reasoning concisely in 'synthesis'. Respond in JSON format: \`\{"synthesis": "...", "recommendedPrice": "...", "confidencePercentage": 0-100\}\``,
 });
 
 // Define the main flow
