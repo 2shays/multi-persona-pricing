@@ -56,6 +56,7 @@ const MultiPersonaPriceEstimationOutputSchema = z.object({
   valueEngineer: ValueEngineerSchema,
   quantitativeAnalyst: QuantAnalystSchema,
   headOfPricing: HeadOfPricingSchema,
+  companyUrl: z.string().url().optional().describe('The URL of the analyzed company\'s website.'),
 });
 export type MultiPersonaPriceEstimationOutput = z.infer<typeof MultiPersonaPriceEstimationOutputSchema>;
 
@@ -99,13 +100,13 @@ const headOfPricingPrompt = ai.definePrompt({
   prompt: `You are the Head of Pricing. You have three reports for "{{companyName}}"'s "{{targetTierName}}" tier: 
 
 1. Market Analyst:
-{{json marketAnalyst}}
+{{{json marketAnalyst}}}
 
 2. Value Engineer:
-{{json valueEngineer}}
+{{{json valueEngineer}}}
 
 3. Quantitative Analyst:
-{{json quantitativeAnalyst}}
+{{{json quantitativeAnalyst}}}
 
 Synthesize these and provide a final recommended monthly price. The 'recommendedPrice' field must contain ONLY the price string (e.g., '$9,000/month'). Explain your reasoning concisely in 'synthesis'. Respond in JSON format.`,
 });
@@ -118,6 +119,10 @@ const multiPersonaPriceEstimationFlow = ai.defineFlow(
     outputSchema: MultiPersonaPriceEstimationOutputSchema,
   },
   async input => {
+    // Find the company's URL
+    const pricingData = await getPricingDataForCompany({query: input.companyName});
+    const companyUrl = pricingData.length > 0 ? pricingData[0].url : undefined;
+    
     // Call the individual persona prompts in parallel
     const [marketAnalyst, valueEngineer, quantitativeAnalyst] = await Promise.all([
       marketAnalystPrompt(input),
@@ -140,6 +145,7 @@ const multiPersonaPriceEstimationFlow = ai.defineFlow(
       valueEngineer: valueEngineer,
       quantitativeAnalyst: quantitativeAnalyst,
       headOfPricing: headOfPricingResult.output!,
+      companyUrl: companyUrl,
     };
   }
 );

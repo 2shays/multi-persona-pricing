@@ -82,7 +82,6 @@ export default function PricingEstimator() {
   return (
     <div className="w-full flex flex-col items-center relative">
         {isLoading && <LoadingAnalysis />}
-
       <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-[#17D8B1] via-[#363A8F] to-[#412352] relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
@@ -117,7 +116,7 @@ export default function PricingEstimator() {
             className="border-secondary/30 shadow-lg shadow-secondary/10"
           />
           <PersonaCard
-            icon={<BrainCircuit className="w-10 h-10 text-accent" />}
+            icon={<User className="w-10 h-10 text-accent" />}
             title="Customer Psychologist"
             description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
             className="border-accent/30 shadow-lg shadow-accent/10"
@@ -182,6 +181,11 @@ export default function PricingEstimator() {
                 </div>
                 <p className="text-foreground/90 mb-4 font-medium">
                   {analysisResults.headOfPricing.synthesis}
+                  {analysisResults.companyUrl && (
+                    <span className="block text-sm text-muted-foreground mt-2">
+                      Source: <a href={analysisResults.companyUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-success/80">{analysisResults.companyUrl}</a>
+                    </span>
+                  )}
                 </p>
                 <div className="bg-card/50 p-4 rounded-xl text-center flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
                   <div className="flex-1">
@@ -237,7 +241,7 @@ export default function PricingEstimator() {
               {analysisResults.quantitativeAnalyst && (
                 <AnalysisCard
                   icon={<User />}
-                  title="Quantitative Analyst"
+                  title="Customer Psychologist"
                   description="Simulates consumer price sensitivity to find an optimal price that isn't perceived as too cheap or too expensive."
                   data={analysisResults.quantitativeAnalyst}
                   priceKey="optimalPricePoint"

@@ -28,9 +28,7 @@ export function AnalysisCard({
     subPriceKey,
     subPriceLabel
 }: AnalysisCardProps) {
-    // A bit of a hack to replace the icon for the quantitative analyst
-    // without having to pass a separate prop all the way down.
-    const displayIcon = title === "Quantitative Analyst" ? <User /> : icon;
+    const displayIcon = title === "Customer Psychologist" ? <User /> : icon;
 
     return (
         <Card className="bg-card/50 flex flex-col border-border/60">
