@@ -82,33 +82,6 @@ export default function PricingEstimator() {
   return (
     <div className="w-full flex flex-col items-center relative">
         {isLoading && <LoadingAnalysis />}
-        {/* Animated Background Shapes */}
-        <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
-          <div
-            className="absolute top-[10%] left-[5%] w-32 h-32 bg-primary/10 rounded-full animate-float"
-            style={{ animationDelay: '0s' }}
-          ></div>
-          <div
-            className="absolute top-[20%] right-[10%] w-48 h-48 bg-secondary/10 rounded-xl animate-float-reverse"
-            style={{ animationDelay: '2s' }}
-          ></div>
-          <div
-            className="absolute bottom-[15%] left-[15%] w-24 h-24 bg-accent/10 rounded-full animate-float"
-            style={{ animationDelay: '4s' }}
-          ></div>
-           <div
-            className="absolute bottom-[25%] right-[5%] w-40 h-40 bg-primary/5 rounded-3xl animate-float"
-            style={{ animationDelay: '6s' }}
-          ></div>
-           <div
-            className="absolute top-[60%] left-[20%] w-20 h-20 bg-secondary/5 rounded-full animate-float"
-            style={{ animationDelay: '1s' }}
-          ></div>
-           <div
-            className="absolute top-[75%] right-[25%] w-36 h-36 bg-accent/5 rounded-xl animate-float-reverse"
-            style={{ animationDelay: '3s' }}
-          ></div>
-        </div>
 
       <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-[#17D8B1] via-[#363A8F] to-[#412352] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
@@ -124,7 +97,7 @@ export default function PricingEstimator() {
         </div>
       </header>
 
-      <main className="w-full container mx-auto px-4 py-16 md:py-24 text-center">
+      <main className="w-full container mx-auto px-4 py-16 md:py-24 text-center bg-grid-pattern">
         <p className="text-muted-foreground mb-12 max-w-2xl mx-auto">
           Three AI perspectives analyze pricing: Marketing Analyst for
           positioning, Value Engineer for cost optimization, and Customer
