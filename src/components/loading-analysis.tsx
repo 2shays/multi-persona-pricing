@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Progress } from '@/components/ui/progress';
 import { CheckCircle, LineChart, LoaderIcon, MarketAnalystIcon } from '@/components/icons';
 import { cn } from '@/lib/utils';
@@ -40,20 +40,45 @@ const analysisSteps = [
 
 
 export function LoadingAnalysis() {
-    const [progress, setProgress] = useState(0);
+    const [displayedProgress, setDisplayedProgress] = useState(0);
+    const targetProgress = useRef(0);
+    const animationFrameId = useRef<number | null>(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setProgress((prev) => {
-                if (prev >= 100) {
-                    clearInterval(interval);
-                    return 100;
-                }
-                return prev + 1;
-            });
-        }, 200); // ~20 seconds to reach 100%
+            targetProgress.current += 1;
+            if (targetProgress.current > 100) {
+                targetProgress.current = 100;
+                clearInterval(interval);
+            }
+        }, 220); // Controls the overall speed, slightly slower ~22s
 
-        return () => clearInterval(interval);
+        const animate = () => {
+            setDisplayedProgress((prev) => {
+                const diff = targetProgress.current - prev;
+                // If the difference is small, just jump to the target
+                if (Math.abs(diff) < 0.01) {
+                    if (prev === 100) {
+                        if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+                        return 100;
+                    }
+                    return targetProgress.current;
+                }
+                // Lerp (linear interpolation) for smooth animation
+                const newProgress = prev + diff * 0.05; // Adjust the 0.05 to make it faster/slower
+                return newProgress;
+            });
+            animationFrameId.current = requestAnimationFrame(animate);
+        };
+
+        animationFrameId.current = requestAnimationFrame(animate);
+
+        return () => {
+            clearInterval(interval);
+            if (animationFrameId.current) {
+                cancelAnimationFrame(animationFrameId.current);
+            }
+        };
     }, []);
 
     return (
@@ -70,16 +95,16 @@ export function LoadingAnalysis() {
                 <div className="text-left mb-8">
                     <div className="flex justify-between items-center mb-2">
                         <label className="text-sm font-medium text-muted-foreground">Analysis Progress</label>
-                        <span className="text-sm font-bold text-primary">{Math.round(progress)}%</span>
+                        <span className="text-sm font-bold text-primary">{Math.round(displayedProgress)}%</span>
                     </div>
-                    <Progress value={progress} className="h-2" />
+                    <Progress value={displayedProgress} className="h-2" />
                 </div>
 
                 <div className="space-y-4 text-left">
                     {analysisSteps.map((step, index) => {
                         const [start, end] = step.progressRange;
-                        const isActive = progress >= start && progress < end;
-                        const isCompleted = progress >= end;
+                        const isActive = displayedProgress >= start && displayedProgress < end;
+                        const isCompleted = displayedProgress >= end;
                         const Icon = step.icon;
                         return (
                             <div key={index} className="flex items-center gap-4">
