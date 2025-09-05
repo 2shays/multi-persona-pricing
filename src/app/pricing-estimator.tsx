@@ -201,9 +201,12 @@ export default function PricingEstimator() {
                             <Button
                                 key={currency}
                                 size="sm"
-                                variant={selectedCurrency === currency ? 'secondary' : 'ghost'}
+                                variant={selectedCurrency === currency ? 'default' : 'ghost'}
                                 onClick={() => setSelectedCurrency(currency)}
-                                className="rounded-full !px-4 !py-1 h-auto text-sm"
+                                className={cn(
+                                  'rounded-full !px-4 !py-1 h-auto text-sm',
+                                   selectedCurrency === currency && 'bg-success/80 text-success-foreground hover:bg-success'
+                                )}
                             >
                                 {currencySymbols[currency]}
                             </Button>

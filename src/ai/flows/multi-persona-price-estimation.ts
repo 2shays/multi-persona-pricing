@@ -35,7 +35,7 @@ const QuantAnalystSchema = z.object({
 type QuantAnalystOutput = z.infer<typeof QuantAnalystSchema>;
 
 const HeadOfPricingSchema = z.object({
-  synthesis: z.string().describe('A concise synthesis of the market analyst, value engineer, and quantitative analyst reports.'),
+  synthesis: z.string().describe('A concise synthesis of the market analyst, value engineer, and quantitative analyst reports. This synthesis should explain the reasoning for the final recommendation without mentioning specific price points, as the prices are displayed separately.'),
   recommendedPrice: z.string().describe('The final recommended monthly price (e.g., \'$9,000/month\').'),
   confidencePercentage: z.number().describe('The confidence percentage (0-100) in the recommended price.'),
 });
@@ -108,7 +108,7 @@ const headOfPricingPrompt = ai.definePrompt({
 3. Quantitative Analyst:
 {{{json quantitativeAnalyst}}}
 
-Synthesize these and provide a final recommended monthly price. The 'recommendedPrice' field must contain ONLY the price string (e.g., '$9,000/month'). Explain your reasoning concisely in 'synthesis'. Respond in JSON format.`,
+Synthesize these and provide a final recommended monthly price. The 'recommendedPrice' field must contain ONLY the price string (e.g., '$9,000/month'). Explain your reasoning concisely in 'synthesis' BUT DO NOT mention any specific prices in the synthesis text. Respond in JSON format.`,
 });
 
 // Define the main flow
