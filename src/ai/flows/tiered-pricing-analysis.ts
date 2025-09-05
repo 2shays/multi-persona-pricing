@@ -40,6 +40,7 @@ const prompt = ai.definePrompt({
   prompt: `You are an AI assistant tasked with fetching and structuring company information for pricing analysis.
 
   Your goal is to extract the qualitative description and pricing tiers (name and features) for the given company.
+  To create the qualitative description, analyze the company's entire public website to form a holistic and comprehensive view of all its services and value propositions. Do not focus on a single project or case study.
   Return the result as a JSON object matching the schema.
 
   Company Name: {{{companyName}}}

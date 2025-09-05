@@ -20,6 +20,7 @@ import { User } from 'lucide-react';
 import { LoadingAnalysis } from '@/components/loading-analysis';
 
 type Currency = 'INR' | 'EUR' | 'USD';
+type BillingPeriod = 'monthly' | 'yearly';
 
 const currencySymbols: Record<Currency, string> = {
   INR: '₹',
@@ -68,6 +69,7 @@ export default function PricingEstimator() {
   const [error, setError] = useState<string | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>('INR');
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
 
 
   const isLoading = isPending;
@@ -189,28 +191,46 @@ export default function PricingEstimator() {
           <div ref={resultsRef} className="w-full max-w-5xl mx-auto space-y-8 mt-16 animate-in fade-in duration-500 text-left">
             {analysisResults.headOfPricing && (
               <section className="bg-success/10 p-6 rounded-2xl border border-success/20">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
                     <div className="flex items-center">
                         <HeadOfPricingIcon className="w-8 h-8 text-success mr-3" />
                         <h2 className="text-2xl font-bold text-success/90">
                             Final Recommendation
                         </h2>
                     </div>
-                    <div className="flex items-center gap-1 bg-card/50 border border-border rounded-full p-1">
-                        {(['INR', 'EUR', 'USD'] as Currency[]).map((currency) => (
-                            <Button
-                                key={currency}
-                                size="sm"
-                                variant={selectedCurrency === currency ? 'default' : 'ghost'}
-                                onClick={() => setSelectedCurrency(currency)}
-                                className={cn(
-                                  'rounded-full !px-4 !py-1 h-auto text-sm',
-                                   selectedCurrency === currency && 'bg-success/80 text-success-foreground hover:bg-success'
-                                )}
-                            >
-                                {currencySymbols[currency]}
-                            </Button>
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1 bg-card/50 border border-border rounded-full p-1">
+                        {(['monthly', 'yearly'] as BillingPeriod[]).map((period) => (
+                          <Button
+                            key={period}
+                            size="sm"
+                            variant={billingPeriod === period ? 'default' : 'ghost'}
+                            onClick={() => setBillingPeriod(period)}
+                            className={cn(
+                              'rounded-full !px-4 !py-1 h-auto text-sm capitalize',
+                              billingPeriod === period && 'bg-success/80 text-success-foreground hover:bg-success'
+                            )}
+                          >
+                            {period}
+                          </Button>
                         ))}
+                      </div>
+                      <div className="flex items-center gap-1 bg-card/50 border border-border rounded-full p-1">
+                          {(['INR', 'EUR', 'USD'] as Currency[]).map((currency) => (
+                              <Button
+                                  key={currency}
+                                  size="sm"
+                                  variant={selectedCurrency === currency ? 'default' : 'ghost'}
+                                  onClick={() => setSelectedCurrency(currency)}
+                                  className={cn(
+                                    'rounded-full !px-4 !py-1 h-auto text-sm',
+                                     selectedCurrency === currency && 'bg-success/80 text-success-foreground hover:bg-success'
+                                  )}
+                              >
+                                  {currencySymbols[currency]}
+                              </Button>
+                          ))}
+                      </div>
                     </div>
                 </div>
 
@@ -224,11 +244,11 @@ export default function PricingEstimator() {
                 </p>
                 <div className="bg-card/50 p-4 rounded-xl text-center flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
                   <div className="flex-1">
-                    <p className="text-lg text-muted-foreground">
-                      Recommended Monthly Price:
+                    <p className="text-lg text-muted-foreground capitalize">
+                      Recommended {billingPeriod} Price:
                     </p>
                     <p className="text-3xl font-bold text-success my-1">
-                      {convertPrice(analysisResults.headOfPricing.recommendedPrice, selectedCurrency, exchangeRates)}
+                      {convertPrice(analysisResults.headOfPricing.recommendedPrice, selectedCurrency, exchangeRates, billingPeriod)}
                     </p>
                   </div>
                   <Separator
@@ -262,6 +282,7 @@ export default function PricingEstimator() {
                   accentClass="text-primary"
                   currency={selectedCurrency}
                   rates={exchangeRates}
+                  billingPeriod={billingPeriod}
                 />
               )}
               {analysisResults.valueEngineer && (
@@ -275,6 +296,7 @@ export default function PricingEstimator() {
                   accentClass="text-secondary"
                   currency={selectedCurrency}
                   rates={exchangeRates}
+                  billingPeriod={billingPeriod}
                 />
               )}
               {analysisResults.quantitativeAnalyst && (
@@ -290,6 +312,7 @@ export default function PricingEstimator() {
                   subPriceLabel="Acceptable Range"
                   currency={selectedCurrency}
                   rates={exchangeRates}
+                  billingPeriod={billingPeriod}
                 />
               )}
             </div>

@@ -3,6 +3,7 @@ import { cn, convertPrice } from "@/lib/utils";
 import { User } from "lucide-react";
 
 type Currency = 'INR' | 'EUR' | 'USD';
+type BillingPeriod = 'monthly' | 'yearly';
 
 interface AnalysisCardProps {
     icon: React.ReactNode;
@@ -19,6 +20,7 @@ interface AnalysisCardProps {
     subPriceLabel?: string;
     currency: Currency;
     rates: { [key: string]: number };
+    billingPeriod: BillingPeriod;
 }
 
 export function AnalysisCard({
@@ -33,6 +35,7 @@ export function AnalysisCard({
     subPriceLabel,
     currency,
     rates,
+    billingPeriod,
 }: AnalysisCardProps) {
     const displayIcon = title === "Customer Psychologist" ? <User /> : icon;
 
@@ -50,10 +53,10 @@ export function AnalysisCard({
             <CardContent className="flex flex-col flex-grow gap-4">
                 <div className="bg-background p-3 rounded-lg text-center">
                     <p className="text-sm text-muted-foreground">{priceLabel}:</p>
-                    <p className={cn("text-lg font-bold", accentClass)}>{convertPrice(data[priceKey], currency, rates)}</p>
+                    <p className={cn("text-lg font-bold", accentClass)}>{convertPrice(data[priceKey], currency, rates, billingPeriod)}</p>
                     {subPriceKey && data[subPriceKey] && (
                         <p className="text-xs text-muted-foreground/70 mt-1">
-                            {subPriceLabel}: {convertPrice(data[subPriceKey], currency, rates)}
+                            {subPriceLabel}: {convertPrice(data[subPriceKey], currency, rates, billingPeriod)}
                         </p>
                     )}
                 </div>

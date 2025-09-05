@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 type Currency = 'INR' | 'EUR' | 'USD';
+type BillingPeriod = 'monthly' | 'yearly';
 
 const currencySymbols: Record<Currency, string> = {
   INR: '₹',
@@ -14,32 +15,53 @@ const currencySymbols: Record<Currency, string> = {
 };
 
 /**
- * Converts a price string from USD to a selected currency.
- * Handles single numbers, ranges, and suffixes like "/month".
+ * Converts a price string from USD to a selected currency and adjusts for billing period.
+ * Handles single numbers, ranges, and suffixes like "/month", "/year", or "/org/year".
  * @param priceString The input price string, assumed to be in USD (e.g., "$5,000", "$5k-$7k/month").
  * @param toCurrency The target currency ('INR', 'EUR', 'USD').
  * @param rates The exchange rates relative to USD.
- * @returns A formatted price string in the target currency.
+ * @param toPeriod The target billing period ('monthly' or 'yearly').
+ * @returns A formatted price string in the target currency and period.
  */
 export function convertPrice(
   priceString: string,
   toCurrency: Currency,
-  rates: { [key: string]: number }
+  rates: { [key: string]: number },
+  toPeriod: BillingPeriod
 ): string {
   if (!priceString || typeof priceString !== 'string') {
     return 'N/A';
   }
 
+  const originalPeriod = /year/i.test(priceString) ? 'yearly' : 'monthly';
+  
   // Extract suffix like /month, /year, etc.
   const suffixMatch = priceString.match(/(\s*\/.*)$/);
-  const suffix = suffixMatch ? suffixMatch[0] : '';
+  let suffix = suffixMatch ? suffixMatch[0] : '';
   const pricePart = priceString.replace(suffix, '').trim();
+  
+  // Update suffix based on target period
+  if (toPeriod === 'yearly') {
+    suffix = suffix.replace(/month/i, 'year');
+    if (!/year/i.test(suffix)) suffix += '/year';
+  } else {
+    suffix = suffix.replace(/year/i, 'month');
+    if (!/month/i.test(suffix)) suffix += '/month';
+  }
+
 
   // Function to convert a single numeric value
   const convertValue = (value: number) => {
+    let adjustedValue = value;
+    if (originalPeriod === 'monthly' && toPeriod === 'yearly') {
+      adjustedValue *= 12;
+    } else if (originalPeriod === 'yearly' && toPeriod === 'monthly') {
+      adjustedValue /= 12;
+    }
+
     const rate = rates[toCurrency] || 1;
-    const converted = value * rate;
-    // Format to 2 decimal places for EUR/USD, 0 for INR
+    const converted = adjustedValue * rate;
+    
     const fixedDigits = toCurrency === 'INR' ? 0 : 2;
     return new Intl.NumberFormat('en-US', {
       maximumFractionDigits: fixedDigits,
