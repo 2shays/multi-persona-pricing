@@ -1,6 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { cn, convertPrice } from "@/lib/utils";
 import { User } from "lucide-react";
+
+type Currency = 'INR' | 'EUR' | 'USD';
 
 interface AnalysisCardProps {
     icon: React.ReactNode;
@@ -15,6 +17,8 @@ interface AnalysisCardProps {
     accentClass: string;
     subPriceKey?: string;
     subPriceLabel?: string;
+    currency: Currency;
+    rates: { [key: string]: number };
 }
 
 export function AnalysisCard({
@@ -26,7 +30,9 @@ export function AnalysisCard({
     priceLabel,
     accentClass,
     subPriceKey,
-    subPriceLabel
+    subPriceLabel,
+    currency,
+    rates,
 }: AnalysisCardProps) {
     const displayIcon = title === "Customer Psychologist" ? <User /> : icon;
 
@@ -44,8 +50,12 @@ export function AnalysisCard({
             <CardContent className="flex flex-col flex-grow gap-4">
                 <div className="bg-background p-3 rounded-lg text-center">
                     <p className="text-sm text-muted-foreground">{priceLabel}:</p>
-                    <p className={cn("text-lg font-bold", accentClass)}>{data[priceKey]}</p>
-                    {subPriceKey && data[subPriceKey] && <p className="text-xs text-muted-foreground/70 mt-1">{subPriceLabel}: {data[subPriceKey]}</p>}
+                    <p className={cn("text-lg font-bold", accentClass)}>{convertPrice(data[priceKey], currency, rates)}</p>
+                    {subPriceKey && data[subPriceKey] && (
+                        <p className="text-xs text-muted-foreground/70 mt-1">
+                            {subPriceLabel}: {convertPrice(data[subPriceKey], currency, rates)}
+                        </p>
+                    )}
                 </div>
                 <p className="text-foreground/80 text-sm flex-grow">{data.analysis}</p>
             </CardContent>

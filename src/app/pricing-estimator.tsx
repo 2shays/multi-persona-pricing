@@ -11,14 +11,29 @@ import {
   LoaderIcon,
   MarketAnalystIcon,
   SearchIcon,
-  BrainCircuit,
 } from '@/components/icons';
 import type { MultiPersonaPriceEstimationOutput } from '@/ai/flows/multi-persona-price-estimation';
 import { AnalysisCard } from '@/components/analysis-card';
 import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
+import { cn, convertPrice } from '@/lib/utils';
 import { User } from 'lucide-react';
 import { LoadingAnalysis } from '@/components/loading-analysis';
+
+type Currency = 'INR' | 'EUR' | 'USD';
+
+const currencySymbols: Record<Currency, string> = {
+  INR: '₹',
+  EUR: '€',
+  USD: '$',
+};
+
+// Approximate exchange rates relative to USD (base)
+const exchangeRates = {
+  USD: 1,
+  INR: 83.5,
+  EUR: 0.92,
+};
+
 
 function PersonaCard({
   icon,
@@ -52,6 +67,7 @@ export default function PricingEstimator() {
     useState<MultiPersonaPriceEstimationOutput | null>(null);
   const [error, setError] = useState<string | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>('INR');
 
 
   const isLoading = isPending;
@@ -82,7 +98,7 @@ export default function PricingEstimator() {
   return (
     <div className="w-full flex flex-col items-center relative">
         {isLoading && <LoadingAnalysis />}
-      <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-[#17D8B1] via-[#363A8F] to-[#412352] relative overflow-hidden">
+      <header className="w-full py-20 md:py-32 text-center bg-gradient-to-r from-[#17D8B1] via-[#363A8F] to-[#412352] relative">
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
             Multi-Persona Pricing Intelligence
@@ -173,12 +189,28 @@ export default function PricingEstimator() {
           <div ref={resultsRef} className="w-full max-w-5xl mx-auto space-y-8 mt-16 animate-in fade-in duration-500 text-left">
             {analysisResults.headOfPricing && (
               <section className="bg-success/10 p-6 rounded-2xl border border-success/20">
-                <div className="flex items-center mb-4">
-                  <HeadOfPricingIcon className="w-8 h-8 text-success mr-3" />
-                  <h2 className="text-2xl font-bold text-success/90">
-                    Final Recommendation
-                  </h2>
+                <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                        <HeadOfPricingIcon className="w-8 h-8 text-success mr-3" />
+                        <h2 className="text-2xl font-bold text-success/90">
+                            Final Recommendation
+                        </h2>
+                    </div>
+                    <div className="flex items-center gap-1 bg-card/50 border border-border rounded-full p-1">
+                        {(['INR', 'EUR', 'USD'] as Currency[]).map((currency) => (
+                            <Button
+                                key={currency}
+                                size="sm"
+                                variant={selectedCurrency === currency ? 'secondary' : 'ghost'}
+                                onClick={() => setSelectedCurrency(currency)}
+                                className="rounded-full !px-4 !py-1 h-auto text-sm"
+                            >
+                                {currencySymbols[currency]}
+                            </Button>
+                        ))}
+                    </div>
                 </div>
+
                 <p className="text-foreground/90 mb-4 font-medium">
                   {analysisResults.headOfPricing.synthesis}
                   {analysisResults.companyUrl && (
@@ -193,7 +225,7 @@ export default function PricingEstimator() {
                       Recommended Monthly Price:
                     </p>
                     <p className="text-3xl font-bold text-success my-1">
-                      {analysisResults.headOfPricing.recommendedPrice}
+                      {convertPrice(analysisResults.headOfPricing.recommendedPrice, selectedCurrency, exchangeRates)}
                     </p>
                   </div>
                   <Separator
@@ -225,6 +257,8 @@ export default function PricingEstimator() {
                   priceKey="estimatedPriceRange"
                   priceLabel="Estimated Price Range"
                   accentClass="text-primary"
+                  currency={selectedCurrency}
+                  rates={exchangeRates}
                 />
               )}
               {analysisResults.valueEngineer && (
@@ -236,6 +270,8 @@ export default function PricingEstimator() {
                   priceKey="justifiedPricePoint"
                   priceLabel="Justified Price Point"
                   accentClass="text-secondary"
+                  currency={selectedCurrency}
+                  rates={exchangeRates}
                 />
               )}
               {analysisResults.quantitativeAnalyst && (
@@ -249,6 +285,8 @@ export default function PricingEstimator() {
                   accentClass="text-accent"
                   subPriceKey="acceptablePriceRange"
                   subPriceLabel="Acceptable Range"
+                  currency={selectedCurrency}
+                  rates={exchangeRates}
                 />
               )}
             </div>
