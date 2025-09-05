@@ -70,7 +70,7 @@ const marketAnalystPrompt = ai.definePrompt({
   tools: [getPricingDataForCompany],
   input: {schema: MultiPersonaPriceEstimationInputSchema},
   output: {schema: MarketAnalystSchema},
-  prompt: `Act as a Market Analyst. Analyze the market for Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Use the getPricingDataForCompany tool to get real-world pricing data for similar companies to inform your analysis. Provide a justifiable monthly price range. The 'estimatedPriceRange' field must contain ONLY the price string (e.g., '$5,000 - $7,000/month') with no other text. Keep your 'analysis' concise (under 40 words). Respond in JSON format.`,
+  prompt: `Act as a Market Analyst. Analyze the market for Company: "{{companyName}}", described as "{{companyDescription}}". The Target Tier is "{{targetTierName}}" with features: "{{targetTierFeatures}}". Use the getPricingDataForCompany tool to get real-world pricing data for the company itself or for similar companies in the same market to inform your analysis. Provide a justifiable monthly price range. The 'estimatedPriceRange' field must contain ONLY the price string (e.g., '$5,000 - $7,000/month') with no other text. Keep your 'analysis' concise (under 40 words). Respond in JSON format.`,
 });
 
 const valueEngineerPrompt = ai.definePrompt({

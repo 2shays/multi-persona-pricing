@@ -139,7 +139,7 @@ export default function PricingEstimator() {
               id="company-input"
               type="text"
               className="flex-1 p-3 border-input rounded-xl focus:outline-none focus:ring-2 focus:ring-ring h-12 text-base bg-input"
-              placeholder="e.g., Microsoft Sustainability Manager, Aplanet"
+              placeholder="e.g., Microsoft Sustainability Manager or aplanet.org"
               value={companyInput}
               onChange={(e) => setCompanyInput(e.target.value)}
               onKeyDown={(e) =>
