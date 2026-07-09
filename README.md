@@ -1,5 +1,1 @@
-# Firebase Studio
-
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+This project is an AI-powered pricing intelligence app that helps users estimate optimal pricing for a company’s product or service by combining multiple expert perspectives. Users enter a company name or URL, and the app analyzes the business using a multi-persona workflow spanning market analysis, value engineering, and customer psychology. It then generates a synthesized pricing recommendation, including a recommended price, confidence score, and price range, with support for currency and billing-period switching. The experience is built with Next.js and Genkit, and it uses Gemini-powered AI flows to turn public company and pricing data into actionable pricing insights.
