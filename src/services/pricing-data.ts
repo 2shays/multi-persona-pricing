@@ -2,10 +2,13 @@
 
 /**
  * @fileOverview This file defines the data structure and a service for
- * fetching company pricing information from a mock database. It also includes
- * the schema definitions for the data.
+ * fetching company pricing information from CSV files in the repository root.
+ * It loads companies from companies.csv and pricing tiers from pricing_tiers.csv,
+ * then joins them by company ID.
  */
 
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { z } from 'zod';
 
 // Define the schema for a single pricing tier.
@@ -25,81 +28,139 @@ const PricingInfoSchema = z.object({
 
 export type PricingInfo = z.infer<typeof PricingInfoSchema>;
 
-// Mock data representing a database of company pricing information.
-// You can expand this with more data from your spreadsheet.
-const PRICING_DATA: PricingInfo[] = [
-    {
-        companyName: "Aplanet",
-        category: "Sustainability Software",
-        url: "https://aplanet.org/pricing",
-        tiers: [
-            {
-                name: "Starter",
-                price: "Contact Us",
-                features: "For small teams getting started with ESG management. Includes data collection, basic reporting, and up to 5 users."
-            },
-            {
-                name: "Business",
-                price: "Contact Us",
-                features: "For growing companies needing more advanced tools. Includes materiality analysis, custom dashboards, and up to 20 users."
-            },
-            {
-                name: "Enterprise",
-                price: "Contact Us",
-                features: "Comprehensive solution for large organizations. Includes supply chain management, API access, and unlimited users."
-            }
-        ]
-    },
-    {
-        companyName: "Microsoft Sustainability Manager",
-        category: "Sustainability Software",
-        url: "https://learn.microsoft.com/en-us/industry/sustainability/sustainability-manager-get-started",
-        tiers: [
-            {
-                name: "Cloud for Sustainability",
-                price: "$4,000/month",
-                features: "Includes Microsoft Sustainability Manager, environmental credit service, and other tools. Price is for 1 tenant per month."
-            },
-            {
-                name: "ESG Value Chain Solution",
-                price: "$6,000/month",
-                features: "Extends capabilities for deeper value chain engagement and reporting. Price is for 1 tenant per month."
-            }
-        ]
-    },
-    {
-        companyName: "Salesforce Net Zero Cloud",
-        category: "Sustainability Software",
-        url: "https://www.salesforce.com/products/net-zero-cloud/overview/",
-        tiers: [
-            {
-                name: "Net Zero Cloud Growth",
-                price: "$48,000/org/year",
-                features: "Calculate and track emissions (Scopes 1-3), basic carbon accounting, supplier engagement."
-            },
-            {
-                name: "Net Zero Cloud Advanced",
-                price: "$126,000/org/year",
-                features: "Advanced carbon accounting, what-if analysis, waste management, and extended reporting."
-            }
-        ]
+const COMPANIES_CSV_PATH = join(process.cwd(), 'companies.csv');
+const PRICING_TIERS_CSV_PATH = join(process.cwd(), 'pricing_tiers.csv');
+
+let cachedPricingData: PricingInfo[] | null = null;
+
+function parseCsv(text: string): string[][] {
+  const rows: string[][] = [];
+  let current = '';
+  let row: string[] = [];
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i += 1) {
+    const char = text[i];
+
+    if (inQuotes) {
+      if (char === '"') {
+        if (text[i + 1] === '"') {
+          current += '"';
+          i += 1;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        current += char;
+      }
+      continue;
     }
-];
+
+    if (char === '"') {
+      inQuotes = true;
+      continue;
+    }
+
+    if (char === ',') {
+      row.push(current);
+      current = '';
+      continue;
+    }
+
+    if (char === '\r') {
+      continue;
+    }
+
+    if (char === '\n') {
+      row.push(current);
+      rows.push(row);
+      row = [];
+      current = '';
+      continue;
+    }
+
+    current += char;
+  }
+
+  if (current !== '' || row.length > 0) {
+    row.push(current);
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+function csvRowsToObjects(rows: string[][]): Array<Record<string, string>> {
+  const [headerRow, ...dataRows] = rows;
+  const headers = headerRow.map(header => header.trim());
+
+  return dataRows.map((row) => {
+    const record: Record<string, string> = {};
+    headers.forEach((header, index) => {
+      record[header] = (row[index] ?? '').trim();
+    });
+    return record;
+  });
+}
+
+async function loadPricingData(): Promise<PricingInfo[]> {
+  if (cachedPricingData) {
+    return cachedPricingData;
+  }
+
+  const [companiesCsv, tiersCsv] = await Promise.all([
+    readFile(COMPANIES_CSV_PATH, 'utf8'),
+    readFile(PRICING_TIERS_CSV_PATH, 'utf8'),
+  ]);
+
+  const companyRows = csvRowsToObjects(parseCsv(companiesCsv));
+  const tierRows = csvRowsToObjects(parseCsv(tiersCsv));
+
+  const tiersByCompanyId = new Map<string, Array<{ name: string; price: string; features: string }>>();
+
+  for (const tier of tierRows) {
+    const companyId = tier.company_id;
+    if (!companyId) {
+      continue;
+    }
+
+    const tierInfo = {
+      name: tier.name || '',
+      price: tier.price || '',
+      features: tier.features || '',
+    };
+
+    const existing = tiersByCompanyId.get(companyId) ?? [];
+    existing.push(tierInfo);
+    tiersByCompanyId.set(companyId, existing);
+  }
+
+  const pricingData: PricingInfo[] = companyRows.map((company) => ({
+    companyName: company.company_name || '',
+    category: company.category || '',
+    url: company.url || '',
+    tiers: tiersByCompanyId.get(company.id) ?? [],
+  }));
+
+  cachedPricingData = pricingData;
+  return pricingData;
+}
 
 /**
- * Searches the mock database for companies matching a query.
+ * Searches the CSV-backed data for companies matching a query.
  * The search is case-insensitive and checks both company name and category.
  * @param query The search query string.
  * @returns A promise that resolves to an array of matching `PricingInfo` objects.
  */
 export async function searchPricingData(
-    query: string
+  query: string
 ): Promise<PricingInfo[]> {
-    const lowerCaseQuery = query.toLowerCase();
-    const results = PRICING_DATA.filter(
-        (company) =>
-            company.companyName.toLowerCase().includes(lowerCaseQuery) ||
-            company.category.toLowerCase().includes(lowerCaseQuery)
-    );
-    return Promise.resolve(results);
+  const lowerCaseQuery = query.toLowerCase();
+  const pricingData = await loadPricingData();
+
+  return pricingData.filter(
+    (company) =>
+      company.companyName.toLowerCase().includes(lowerCaseQuery) ||
+      company.category.toLowerCase().includes(lowerCaseQuery)
+  );
 }
