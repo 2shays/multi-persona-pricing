@@ -7,9 +7,8 @@
  * then joins them by company ID.
  */
 
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { z } from 'zod';
+import pricingDataJson from '@/data/pricing-data.json';
 
 // Define the schema for a single pricing tier.
 const PricingTierSchema = z.object({
@@ -27,9 +26,6 @@ const PricingInfoSchema = z.object({
 });
 
 export type PricingInfo = z.infer<typeof PricingInfoSchema>;
-
-const COMPANIES_CSV_PATH = join(process.cwd(), 'companies.csv');
-const PRICING_TIERS_CSV_PATH = join(process.cwd(), 'pricing_tiers.csv');
 
 let cachedPricingData: PricingInfo[] | null = null;
 
@@ -108,38 +104,15 @@ async function loadPricingData(): Promise<PricingInfo[]> {
     return cachedPricingData;
   }
 
-  const [companiesCsv, tiersCsv] = await Promise.all([
-    readFile(COMPANIES_CSV_PATH, 'utf8'),
-    readFile(PRICING_TIERS_CSV_PATH, 'utf8'),
-  ]);
-
-  const companyRows = csvRowsToObjects(parseCsv(companiesCsv));
-  const tierRows = csvRowsToObjects(parseCsv(tiersCsv));
-
-  const tiersByCompanyId = new Map<string, Array<{ name: string; price: string; features: string }>>();
-
-  for (const tier of tierRows) {
-    const companyId = tier.company_id;
-    if (!companyId) {
-      continue;
-    }
-
-    const tierInfo = {
+  const pricingData = pricingDataJson.map((company) => ({
+    companyName: company.companyName || '',
+    category: company.category || '',
+    url: company.url || '',
+    tiers: (company.tiers || []).map((tier) => ({
       name: tier.name || '',
       price: tier.price || '',
       features: tier.features || '',
-    };
-
-    const existing = tiersByCompanyId.get(companyId) ?? [];
-    existing.push(tierInfo);
-    tiersByCompanyId.set(companyId, existing);
-  }
-
-  const pricingData: PricingInfo[] = companyRows.map((company) => ({
-    companyName: company.company_name || '',
-    category: company.category || '',
-    url: company.url || '',
-    tiers: tiersByCompanyId.get(company.id) ?? [],
+    })),
   }));
 
   cachedPricingData = pricingData;

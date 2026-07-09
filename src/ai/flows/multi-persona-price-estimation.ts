@@ -124,19 +124,23 @@ const multiPersonaPriceEstimationFlow = ai.defineFlow(
     const companyUrl = pricingData.length > 0 ? pricingData[0].url : undefined;
     
     // Call the individual persona prompts in parallel
-    const [marketAnalyst, valueEngineer, quantitativeAnalyst] = await Promise.all([
+    const [marketAnalystResult, valueEngineerResult, quantitativeAnalystResult] = await Promise.all([
       marketAnalystPrompt(input),
       valueEngineerPrompt(input),
       quantAnalystPrompt(input),
-    ]).then(results => results.map(result => result.output!));
+    ]);
+
+    const marketAnalyst = marketAnalystResult.output as MarketAnalystOutput;
+    const valueEngineer = valueEngineerResult.output as ValueEngineerOutput;
+    const quantitativeAnalyst = quantitativeAnalystResult.output as QuantAnalystOutput;
 
     // Call the head of pricing prompt with the results from the other personas
     const headOfPricingResult = await headOfPricingPrompt({
       companyName: input.companyName,
       targetTierName: input.targetTierName,
-      marketAnalyst: marketAnalyst,
-      valueEngineer: valueEngineer,
-      quantitativeAnalyst: quantitativeAnalyst
+      marketAnalyst,
+      valueEngineer,
+      quantitativeAnalyst
     });
 
     // Return the combined results

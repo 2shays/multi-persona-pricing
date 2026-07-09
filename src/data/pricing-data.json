@@ -1,0 +1,619 @@
+[
+  {
+    "companyName": "LOCOMeX",
+    "category": "Supply Chain Sustainability and Risk Management",
+    "url": "https://locomexgroup.com/pricing",
+    "tiers": [
+      {
+        "name": "Freemium",
+        "price": "Free",
+        "features": "It includes the Supplier Pylon, which is a supplier engagement and relationship management platform that provides a centralized hub for insights, detailed supplier profiles, and an AI-powered RFP matchmaking engine"
+      },
+      {
+        "name": "Supplier Plan",
+        "price": "$229 ",
+        "features": "This plan is for individual suppliers who want to increase visibility and win more contracts. It includes the Supplier Pylon, which is a supplier engagement and relationship management platform that provides a centralized hub for insights, detailed supplier profiles, and an AI-powered RFP matchmaking engine. The plan also includes features from DivedIn AI, an AI-powered platform for compliance and risk analytics, specifically the Compliance Risk Score and Sanction Check & Risk Score."
+      },
+      {
+        "name": "Prime Plan",
+        "price": "$1,889 ",
+        "features": "This is for prime contractors managing up to 5,000 suppliers. It includes all the features of the Supplier Plan plus the full DivedIn AI Package. The DivedIn AI package offers comprehensive tools for sanction screening, regulatory compliance risk assessment, and local content analysis (like the \"Buy America\" Act). The plan also includes ESG Metrics Solutions, which help with setting and tracking ESG goals and provide tools for supplier-based ESG scoring."
+      },
+      {
+        "name": "Corporate Plan",
+        "price": "$3,189 ",
+        "features": "This is the enterprise-level plan for companies seeking full-scale supply chain risk assessment and resilience, for up to 25,000 suppliers. It includes everything from the Prime Plan, plus the full ESG & Sustainability Metrics Solutions. It also gives access to all available add-on functionalities and includes modules for Procurement & Sourcing and Resource Planning & Management."
+      }
+    ]
+  },
+  {
+    "companyName": "Brightest",
+    "category": "Sustainability Management Software",
+    "url": "https://www.brightest.io/pricing",
+    "tiers": [
+      {
+        "name": "Launch",
+        "price": "Free",
+        "features": "This is a free plan designed for small non-profits, public schools, open-source groups, and social impact projects. Core Features: Includes operational and impact analytics, basic community and employee communication tools, and integrations with Zapier and Slack for data import/export. Support: Limited to self-serve tutorials and documentation."
+      },
+      {
+        "name": "Impact",
+        "price": "$5,900 ",
+        "features": "Aimed at startups, B-corps, and mission-driven organizations with up to 300 employees. Includes all Launch plan features, plus: Carbon Accounting: Scope 1, 2, and 3 GHG and carbon accounting, including emissions targets, reduction, and forecasting. Data Collection: Custom forms and stakeholder surveys. Community & Stakeholder Tools: Features for managing community partnerships, supply chains, volunteering, fundraising, and donations. CRM: A community CRM with tracking for up to 500 contacts or employees."
+      },
+      {
+        "name": "Transform",
+        "price": "$15,900 ",
+        "features": "This tier is for organizations with up to 3,000 employees that need integrated ESG and sustainability tools. Includes all Impact plan features, plus: ESG & Reporting: Materiality assessments and formal ESG reporting capabilities. Supply Chain: Environmental management features for the supply chain. Analytics: Premium analytics, measurement, and reporting. CRM & Communication: Unlimited community CRM contacts and advanced communication segmentation. Support & Access: Includes 24/7 premium support, a dedicated account manager, Single Sign-on (SSO), and approval workflows."
+      },
+      {
+        "name": "Enterprise ESG",
+        "price": "$45,900 ",
+        "features": "For large, global organizations requiring comprehensive ESG management. Includes all Transform plan features, plus: Scalability: Supports unlimited chapters, brands, teams, or regions. Integrations: Full API access and the option for custom integrations. Services: Includes dedicated enterprise-level services."
+      }
+    ]
+  },
+  {
+    "companyName": "Sustaira",
+    "category": "Sustainability and ESG Software Platform",
+    "url": "https://www.sustaira.com/pricing#:~:text=Start%20at%20%249%2C950%20or%20%E2%82%AC9",
+    "tiers": [
+      {
+        "name": "Basic",
+        "price": "$9,950 ",
+        "features": "This is for ESG and Sustainability Goals & KPI tracking and includes basic Carbon Footprint and Waste Calculators. It provides a launchpad for multiple users to log in and share information. Add-on option: Sustainability and ESG Consulting Packages starting at $10,000 "
+      },
+      {
+        "name": "Standard",
+        "price": "$14,950 ",
+        "features": "This includes everything in the Basic Edition plus a complete Carbon Accounting solution for Scope 1, 2, and 3 emissions data aggregation, calculation, and reporting according to the GHG protocol. Add-on option: Sustainability and ESG Consulting Packages starting at $10,000 "
+      },
+      {
+        "name": "Premium",
+        "price": "$19,950 ",
+        "features": "This tier adds functionalities for suppliers and customers. It includes the Standard Edition features, as well as ESG Disclosures and ESG (Supplier) surveys. It also allows for the addition of custom apps."
+      }
+    ]
+  },
+  {
+    "companyName": "Aplanet",
+    "category": "ESG Management and Reporting Software",
+    "url": "https://aplanet.org/pricing/#:~:text=,employees",
+    "tiers": [
+      {
+        "name": "SMEs",
+        "price": "� 999",
+        "features": "SUSTAINABILITY module is a comprehensive solution for ESG data management, offering features like unlimited data, KPIs, users, and customizable dashboards. The NEUTRALITY module simplifies carbon footprint calculation and management, providing automated calculations for all emission scopes, AI-driven decarbonization plans, and robust data integration. The MATERIALITY module assists with CSRD compliance by guiding users through double materiality analysis, stakeholder mapping, and competitor tracking. For SMEs with less than 250 employees."
+      },
+      {
+        "name": "Medium Size Organizations",
+        "price": "� 1,499",
+        "features": "SUSTAINABILITY module is a comprehensive solution for ESG data management, offering features like unlimited data, KPIs, users, and customizable dashboards. The NEUTRALITY module simplifies carbon footprint calculation and management, providing automated calculations for all emission scopes, AI-driven decarbonization plans, and robust data integration. The MATERIALITY module assists with CSRD compliance by guiding users through double materiality analysis, stakeholder mapping, and competitor tracking. For Medium size organizations with over 250 employees."
+      },
+      {
+        "name": "Large Size Organizations",
+        "price": "On Quote",
+        "features": "SUSTAINABILITY module is a comprehensive solution for ESG data management, offering features like unlimited data, KPIs, users, and customizable dashboards. The NEUTRALITY module simplifies carbon footprint calculation and management, providing automated calculations for all emission scopes, AI-driven decarbonization plans, and robust data integration. The MATERIALITY module assists with CSRD compliance by guiding users through double materiality analysis, stakeholder mapping, and competitor tracking. For Large size organizations with employees over 1000."
+      }
+    ]
+  },
+  {
+    "companyName": "Carbon Analytics",
+    "category": "Carbon Accounting Software",
+    "url": "https://www.co2analytics.com/pricing#:~:text=",
+    "tiers": [
+      {
+        "name": "Small Business",
+        "price": "$1,249 ",
+        "features": "Priced for companies with fewer than 25 employees, this tier includes unlimited platform access for all three scopes of carbon accounting."
+      },
+      {
+        "name": "Growth",
+        "price": "$5,499 ",
+        "features": "For companies with fewer than 100 employees, this plan includes all the features of the Small Business tier with up to 3 users and additional onboarding support."
+      },
+      {
+        "name": "Advanced",
+        "price": "$12,499 ",
+        "features": "This tier offers additional features like an expanded annual report and detailed analytics with unlimited users."
+      },
+      {
+        "name": "Enterprise",
+        "price": "$24,995 ",
+        "features": "This tier offers additional features like a dedicated account manager, detailed analytics and subsidary packages & portfolio management."
+      }
+    ]
+  },
+  {
+    "companyName": "Microsoft Sustainability Manager",
+    "category": "Sustainability Management Software",
+    "url": "https://www.microsoft.com/en-us/sustainability/microsoft-sustainability-manager#Pricing",
+    "tiers": [
+      {
+        "name": "Essentials",
+        "price": "$4,000 ",
+        "features": "Foundational carbon, water, waste data management. Calculation models for Scopes 1, 2, and multiple Scope 3 emissions categories. Dataverse capacity: 10 GB"
+      },
+      {
+        "name": "Premium",
+        "price": "$12,000 ",
+        "features": "Everything in the tier above and Carbon management for all of Scope 3 Advanced water and waste data management (Preview) ESG value chain solution (Preview) AI-powered insights and Microsoft Copilot (Preview) Product carbon footprint management AI Builder: 25K credits Dataverse: 50 GB"
+      }
+    ]
+  },
+  {
+    "companyName": "ESG Report Inteligence",
+    "category": "ESG Reporting and Intelligence Platform",
+    "url": "https://esgri.com/pricing/",
+    "tiers": [
+      {
+        "name": "Basic",
+        "price": "$1,000 ",
+        "features": "This plan is designed for businesses with 1 to 20 full-time employees. It includes two one-hour workshops with an ESG consultant, access to exclusive ESG training materials, and reporting for ESG risk analysis, carbon footprint, governance, and sustainable development goals. It also includes supplier management features."
+      },
+      {
+        "name": "Enterprise",
+        "price": "$3,000 ",
+        "features": "This tier is for businesses with 21 or more employees. It includes all the same features as the Basic plan."
+      }
+    ]
+  },
+  {
+    "companyName": "Pipedrive",
+    "category": "Sales CRM",
+    "url": "https://www.pipedrive.com/en/pricing",
+    "tiers": [
+      {
+        "name": "Essential",
+        "price": "$14.00 ",
+        "features": "Essential: Lead, calendar, and pipeline management, 500+ integrations. Advanced: All Essential features, plus full email sync with tracking, automations, and live chat support. Professional: All Advanced features, plus lead generation, custom scoring, e-signatures, and enhanced customization for teams and reports. Enterprise: All Professional features, plus fortified account security, maximized usage limits, and a sandbox testing account. � "
+      },
+      {
+        "name": "Advanced",
+        "price": "$29.00 ",
+        "features": "Advanced: All Essential features, plus full email sync with tracking, automations, and live chat support. "
+      },
+      {
+        "name": "Professional",
+        "price": "$49.00 ",
+        "features": "Professional: All Advanced features, plus lead generation, custom scoring, e-signatures, and enhanced customization for teams and reports."
+      },
+      {
+        "name": "Enterprise",
+        "price": "$79.00 ",
+        "features": "Enterprise: All Professional features, plus fortified account security, maximized usage limits, and a sandbox testing account. �"
+      }
+    ]
+  },
+  {
+    "companyName": "Freshsales",
+    "category": "Sales CRM",
+    "url": "https://www.freshworks.com/crm/pricing/",
+    "tiers": [
+      {
+        "name": "Free",
+        "price": "$0 ",
+        "features": "Free: Powerful Kanban views, email templates, built-in phone, and live chat.  "
+      },
+      {
+        "name": "Growth",
+        "price": "$9 ",
+        "features": "Growth: Tailored for startups and SMBs, it includes pipeline management, contextual collaboration with Slack, and a product catalog."
+      },
+      {
+        "name": "Pro",
+        "price": "$39 ",
+        "features": " Pro: Ideal for growing businesses, it adds AI-powered contact scoring, advanced custom fields, sales sequences, and multiple sales pipelines."
+      },
+      {
+        "name": "Enterprise",
+        "price": "$59 ",
+        "features": "Enterprise: Designed for large businesses, it offers field-level permissions, custom modules, AI-powered forecasting insights, and a sandbox environment. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Gusto",
+    "category": "HR & Payroll",
+    "url": "https://gusto.com/product/pricing",
+    "tiers": [
+      {
+        "name": "Contractor Only",
+        "price": "$0 ",
+        "features": "Contractor Only: For businesses that only pay contractors, includes unlimited payroll runs and 1099 filings"
+      },
+      {
+        "name": "Simple",
+        "price": "$49 ",
+        "features": " Simple: Full-service single-state payroll, basic hiring and onboarding, and automated tax filings"
+      },
+      {
+        "name": "Plus",
+        "price": "$80 ",
+        "features": " Plus: All Simple features, plus multi-state payroll, next-day direct deposit, time tracking, and health insurance administration"
+      },
+      {
+        "name": "Premium",
+        "price": "$180 ",
+        "features": " Premium: All Plus features, plus a dedicated service advisor, access to certified HR experts, and advanced analytics and custom reporting"
+      }
+    ]
+  },
+  {
+    "companyName": "Rippling",
+    "category": "HR & Workforce Management",
+    "url": "https://thectoclub.com/tools/best-saas-spend-management-software/",
+    "tiers": [
+      {
+        "name": "Monthly",
+        "price": "$8 ",
+        "features": "Combines HR, IT, and finance management in a single platform, with features for real-time transaction reviews, automatic receipt matching, and customizable spending controls"
+      },
+      {
+        "name": "Custom",
+        "price": "Custom",
+        "features": " The price is based on the combination of modules chosen"
+      }
+    ]
+  },
+  {
+    "companyName": "BambooHR",
+    "category": "HR & All-in-one HR Suites",
+    "url": "https://technologyadvice.com/blog/human-resources/hr-software-pricing/",
+    "tiers": [
+      {
+        "name": "Core",
+        "price": "Core: $250.00 - $425.00 flat rate for 25 employees. Specific pricing varies by tier. � ",
+        "features": "An all-in-one HR platform that streamlines hiring, onboarding, and employee management. Pricing includes volume discounts for larger workforces. The Core plan does not include key features like payroll or time-tracking. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Trello",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "tiers": [
+      {
+        "name": "Standard",
+        "price": "$5 ",
+        "features": "Standard: Unlimited Kanban boards, custom fields, and app integrations. Premium: Adds advanced administrative features for better organization. Enterprise: Provides additional organizational management features. � "
+      },
+      {
+        "name": "Premium",
+        "price": "$10 ",
+        "features": " Premium: Adds advanced administrative features for better organization."
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "features": "Enterprise: Provides additional organizational management features"
+      }
+    ]
+  },
+  {
+    "companyName": "monday.com",
+    "category": "Collaboration & Project Management",
+    "url": "https://thedigitalprojectmanager.com/tools/best-collaboration-tools/",
+    "tiers": [
+      {
+        "name": "Basic",
+        "price": "$8 ",
+        "features": "Basic: A Gantt chart view, embedded documents, and 250 automations. "
+      },
+      {
+        "name": "Standard",
+        "price": "$10 ",
+        "features": "Standard: Adds features for a team of 3 users with more complex projects"
+      },
+      {
+        "name": "Pro",
+        "price": "$16 ",
+        "features": " Pro: The price for this plan is for one user. This is the top tier with a set price "
+      }
+    ]
+  },
+  {
+    "companyName": "Wrike",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "tiers": [
+      {
+        "name": "Professional",
+        "price": "$9.80 ",
+        "features": "Professional: Folder hierarchies, shareable dashboards, and MS Office integrations."
+      },
+      {
+        "name": "Business",
+        "price": "$24.80 ",
+        "features": " Business: Offers advanced collaboration, project tracking, and integrations"
+      }
+    ]
+  },
+  {
+    "companyName": "ClickUp",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "tiers": [
+      {
+        "name": "Unlimited",
+        "price": "$5 ",
+        "features": "Unlimited: Unlimited storage space, resource management tools, and the option to add guests with permissions."
+      },
+      {
+        "name": "Business Plus",
+        "price": "$19 ",
+        "features": "Business Plus: The price for this tier is for one user"
+      }
+    ]
+  },
+  {
+    "companyName": "Notion",
+    "category": "Collaboration & Productivity",
+    "url": "https://thedigitalprojectmanager.com/tools/best-collaboration-tools/",
+    "tiers": [
+      {
+        "name": "Personal Pro",
+        "price": "$4 ",
+        "features": "Personal Pro: Unlimited guests, link sharing, and collaboration tools for individuals."
+      },
+      {
+        "name": "Team",
+        "price": "$8 ",
+        "features": "Team: Adds features to centralize knowledge and work for a full team"
+      }
+    ]
+  },
+  {
+    "companyName": "Miro",
+    "category": "Collaboration",
+    "url": "https://thedigitalprojectmanager.com/tools/best-collaboration-tools/",
+    "tiers": [
+      {
+        "name": "Monthly",
+        "price": "From $8.00 per user per month. � ",
+        "features": "An online whiteboarding tool that offers a single-tier priced plan for teams and an Enterprise plan with custom pricing. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Asana",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "tiers": [
+      {
+        "name": "Premium",
+        "price": "$10.99 ",
+        "features": "Premium: Timeline views, custom fields, and in-depth reporting."
+      },
+      {
+        "name": "Business",
+        "price": "$24.99 ",
+        "features": "Business: Adds portfolio management and workload features"
+      }
+    ]
+  },
+  {
+    "companyName": "Xero",
+    "category": "Small Business Accounting",
+    "url": "https://www.xero.com/us/accounting-software/",
+    "tiers": [
+      {
+        "name": "Early",
+        "price": "$20 ",
+        "features": "Early: Good for sole traders, allows sending up to 20 invoices and entering 5 bills per month."
+      },
+      {
+        "name": "Growing",
+        "price": "$47 ",
+        "features": "Growing: Good for small businesses, allows unlimited invoices and bills"
+      },
+      {
+        "name": "Established",
+        "price": "$80 ",
+        "features": " Established: Good for established businesses, includes multi-currency support"
+      }
+    ]
+  },
+  {
+    "companyName": "QuickBooks",
+    "category": "Financial Management",
+    "url": "https://www.getmonetizely.com/articles/whats-the-best-pricing-model-for-real-estate-saas-commission-based-or-subscription/",
+    "tiers": [
+      {
+        "name": "Monthly",
+        "price": "From $19.00 per month. Pricing varies based on the plan. � ",
+        "features": "A financial management platform for businesses, with a variety of plans that include essential accounting features. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Bill.com",
+    "category": "Financial Management",
+    "url": "https://www.withorb.com/blog/saas-finance-software",
+    "tiers": [
+      {
+        "name": "Monthly",
+        "price": "From $45.00 per month. Pricing varies based on business needs. � ",
+        "features": "Automates accounts payable and receivable processes, helping businesses save time and reduce errors. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Rippling Spend",
+    "category": "Financial & Spend Management",
+    "url": "https://thectoclub.com/tools/best-saas-spend-management-software/",
+    "tiers": [
+      {
+        "name": "Monthly",
+        "price": "From $8.00 per user per month (billed annually). � ",
+        "features": "Manages a company's spending with real-time transaction reviews, automatic receipt matching, and customizable spending controls. � "
+      }
+    ]
+  },
+  {
+    "companyName": "AppFolio",
+    "category": "Property Management",
+    "url": "https://www.vertice.one/vendors/appfolio",
+    "tiers": [
+      {
+        "name": "Core",
+        "price": "$1.49 ",
+        "features": "Core: Property accounting and reports, end-to-end marketing and leasing, work order management, access to mobile apps. Best for portfolios of 200+ units. Plus: All Core features, plus advanced leasing metrics and corporate accounting. Best for portfolios of 300+ units. Max: All Plus features, plus a leasing CRM, custom fields, database APIs, and a dedicated account manager. Reserved for portfolios of 1,500+ units. � "
+      },
+      {
+        "name": "Plus",
+        "price": "$3.20 ",
+        "features": "Plus: All Core features, plus advanced leasing metrics and corporate accounting"
+      },
+      {
+        "name": "Max",
+        "price": "$5 ",
+        "features": "Max: All Plus features, plus a leasing CRM, custom fields, database APIs, and a dedicated account manager"
+      }
+    ]
+  },
+  {
+    "companyName": "RentRedi",
+    "category": "Landlord App",
+    "url": "https://rentredi.com/pricing/",
+    "tiers": [
+      {
+        "name": "Monthly",
+        "price": "$29.95 ",
+        "features": "Flat-rate pricing for unlimited properties, tenants, and teammate accounts. Includes rent collection, maintenance request management, tenant screening, and mobile access. � "
+      },
+      {
+        "name": "6 Months",
+        "price": "$20 ",
+        "features": "Flat-rate pricing for unlimited properties, tenants, and teammate accounts. Includes rent collection, maintenance request management, tenant screening, and mobile access. � "
+      },
+      {
+        "name": "Annual",
+        "price": "$12 ",
+        "features": "Flat-rate pricing for unlimited properties, tenants, and teammate accounts. Includes rent collection, maintenance request management, tenant screening, and mobile access. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Avail",
+    "category": "Property Management",
+    "url": "https://www.stessa.com/blog/rentredi-vs-avail/",
+    "tiers": [
+      {
+        "name": "Unlimited",
+        "price": "$0 ",
+        "features": "Unlimited: Includes syndicated listings, tenant screening, state-specific lease agreements, online rent payments, and maintenance requests. "
+      },
+      {
+        "name": "Unlimited Plus",
+        "price": "$9 ",
+        "features": "Unlimited Plus: Adds next-day rent disbursement, waived ACH fees, customized applications, and a property website"
+      }
+    ]
+  },
+  {
+    "companyName": "GitLab",
+    "category": "DevSecOps Platform",
+    "url": "https://about.gitlab.com/pricing/",
+    "tiers": [
+      {
+        "name": "Free",
+        "price": "$0 ",
+        "features": "Free: For individuals working on personal projects, includes a 10 GiB storage limit and 400 compute minutes.  "
+      },
+      {
+        "name": "Premium",
+        "price": "$29 ",
+        "features": "Premium: Adds release controls, team project management, and priority support"
+      },
+      {
+        "name": "Ultimate",
+        "price": "Custom",
+        "features": "Ultimate: All Premium features, plus advanced security features, vulnerability management, and enhanced compliance tools"
+      }
+    ]
+  },
+  {
+    "companyName": "Datadog",
+    "category": "Cloud Monitoring",
+    "url": "https://middleware.io/blog/datadog-pricing/",
+    "tiers": [
+      {
+        "name": "Free Tier",
+        "price": "$0 ",
+        "features": "Free Tier: Ingesting up to 100 GB/month with limited features. "
+      },
+      {
+        "name": "Pro",
+        "price": "$15 ",
+        "features": "Pro: Adds 750+ integrations, out-of-the-box dashboards, and 15-month metric retention"
+      },
+      {
+        "name": "Enterprise",
+        "price": "$23 ",
+        "features": " Enterprise: Includes advanced features like machine learning-based alerts and live processes"
+      }
+    ]
+  },
+  {
+    "companyName": "Adobe",
+    "category": "Creative & Business Suite",
+    "url": "https://www.adobe.com/acrobat/pricing/students.html",
+    "tiers": [
+      {
+        "name": "Creative Cloud Pro Student/Teacher",
+        "price": "$29.99 ",
+        "features": "A suite of creative and business tools, including Acrobat Pro, Photoshop, and Illustrator, with a tiered plan for different user segments. � "
+      },
+      {
+        "name": "Creative Cloud Pro Individual",
+        "price": "$69.99 ",
+        "features": "A suite of creative and business tools, including Acrobat Pro, Photoshop, and Illustrator, with a tiered plan for different user segments. � "
+      }
+    ]
+  },
+  {
+    "companyName": "Hotel Engine",
+    "category": "Business Travel Management",
+    "url": "https://engine.com/pricing",
+    "tiers": [
+      {
+        "name": "Flex",
+        "price": "$0 ",
+        "features": "Free: No membership fees or contracts, includes unlimited users, a central admin dashboard, and travel trends analytics. � "
+      },
+      {
+        "name": "FlexPro",
+        "price": "$200 ",
+        "features": "FlexPro: Covers all company travelers with unlimited changes and cancellations on hotel reservations, regardless of hotel policy"
+      }
+    ]
+  },
+  {
+    "companyName": "Lusha",
+    "category": "Sales Intelligence",
+    "url": "https://www.cognism.com/lusha-pricing",
+    "tiers": [
+      {
+        "name": "Free",
+        "price": "$0 ",
+        "features": "A B2B sales intelligence platform that uses a credit-based system to provide contact and company data for sales, marketing, and recruiting teams. � "
+      },
+      {
+        "name": "Pro",
+        "price": "$49.90 ",
+        "features": "A B2B sales intelligence platform that uses a credit-based system to provide contact and company data for sales, marketing, and recruiting teams. � "
+      },
+      {
+        "name": "Premium",
+        "price": "$79.90 ",
+        "features": "A B2B sales intelligence platform that uses a credit-based system to provide contact and company data for sales, marketing, and recruiting teams. � "
+      },
+      {
+        "name": "Scale",
+        "price": "Custom",
+        "features": "A B2B sales intelligence platform that uses a credit-based system to provide contact and company data for sales, marketing, and recruiting teams. � "
+      }
+    ]
+  }
+]
