@@ -1,0 +1,219 @@
+[
+  {
+    "id": "7",
+    "company_name": "LOCOMeX",
+    "category": "Supply Chain Sustainability and Risk Management",
+    "url": "https://locomexgroup.com/pricing",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "1",
+    "company_name": "Brightest",
+    "category": "Sustainability Management Software",
+    "url": "https://www.brightest.io/pricing",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "2",
+    "company_name": "Sustaira",
+    "category": "Sustainability and ESG Software Platform",
+    "url": "https://www.sustaira.com/pricing#:~:text=Start%20at%20%249%2C950%20or%20%E2%82%AC9",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "3",
+    "company_name": "Aplanet",
+    "category": "ESG Management and Reporting Software",
+    "url": "https://aplanet.org/pricing/#:~:text=,employees",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "4",
+    "company_name": "Carbon Analytics",
+    "category": "Carbon Accounting Software",
+    "url": "https://www.co2analytics.com/pricing#:~:text=",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "5",
+    "company_name": "Microsoft Sustainability Manager",
+    "category": "Sustainability Management Software",
+    "url": "https://www.microsoft.com/en-us/sustainability/microsoft-sustainability-manager#Pricing",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "6",
+    "company_name": "ESG Report Inteligence",
+    "category": "ESG Reporting and Intelligence Platform",
+    "url": "https://esgri.com/pricing/",
+    "created_at": "2025-09-05 12:29:05.194112+05:30"
+  },
+  {
+    "id": "8",
+    "company_name": "Pipedrive",
+    "category": "Sales CRM",
+    "url": "https://www.pipedrive.com/en/pricing",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "9",
+    "company_name": "Freshsales",
+    "category": "Sales CRM",
+    "url": "https://www.freshworks.com/crm/pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "10",
+    "company_name": "Gusto",
+    "category": "HR & Payroll",
+    "url": "https://gusto.com/product/pricing",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "11",
+    "company_name": "Rippling",
+    "category": "HR & Workforce Management",
+    "url": "https://thectoclub.com/tools/best-saas-spend-management-software/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "12",
+    "company_name": "BambooHR",
+    "category": "HR & All-in-one HR Suites",
+    "url": "https://technologyadvice.com/blog/human-resources/hr-software-pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "13",
+    "company_name": "Trello",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "14",
+    "company_name": "monday.com",
+    "category": "Collaboration & Project Management",
+    "url": "https://thedigitalprojectmanager.com/tools/best-collaboration-tools/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "15",
+    "company_name": "Wrike",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "16",
+    "company_name": "ClickUp",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "17",
+    "company_name": "Notion",
+    "category": "Collaboration & Productivity",
+    "url": "https://thedigitalprojectmanager.com/tools/best-collaboration-tools/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "18",
+    "company_name": "Miro",
+    "category": "Collaboration",
+    "url": "https://thedigitalprojectmanager.com/tools/best-collaboration-tools/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "19",
+    "company_name": "Asana",
+    "category": "Project Management",
+    "url": "https://www.cloudwards.net/project-management-software-pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "20",
+    "company_name": "Xero",
+    "category": "Small Business Accounting",
+    "url": "https://www.xero.com/us/accounting-software/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "21",
+    "company_name": "QuickBooks",
+    "category": "Financial Management",
+    "url": "https://www.getmonetizely.com/articles/whats-the-best-pricing-model-for-real-estate-saas-commission-based-or-subscription/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "22",
+    "company_name": "Bill.com",
+    "category": "Financial Management",
+    "url": "https://www.withorb.com/blog/saas-finance-software",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "23",
+    "company_name": "Rippling Spend",
+    "category": "Financial & Spend Management",
+    "url": "https://thectoclub.com/tools/best-saas-spend-management-software/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "24",
+    "company_name": "AppFolio",
+    "category": "Property Management",
+    "url": "https://www.vertice.one/vendors/appfolio",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "25",
+    "company_name": "RentRedi",
+    "category": "Landlord App",
+    "url": "https://rentredi.com/pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "26",
+    "company_name": "Avail",
+    "category": "Property Management",
+    "url": "https://www.stessa.com/blog/rentredi-vs-avail/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "27",
+    "company_name": "GitLab",
+    "category": "DevSecOps Platform",
+    "url": "https://about.gitlab.com/pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "28",
+    "company_name": "Datadog",
+    "category": "Cloud Monitoring",
+    "url": "https://middleware.io/blog/datadog-pricing/",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "29",
+    "company_name": "Adobe",
+    "category": "Creative & Business Suite",
+    "url": "https://www.adobe.com/acrobat/pricing/students.html",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "30",
+    "company_name": "Hotel Engine",
+    "category": "Business Travel Management",
+    "url": "https://engine.com/pricing",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  },
+  {
+    "id": "31",
+    "company_name": "Lusha",
+    "category": "Sales Intelligence",
+    "url": "https://www.cognism.com/lusha-pricing",
+    "created_at": "2025-09-05 15:27:30.77777+05:30"
+  }
+]
